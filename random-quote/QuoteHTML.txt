@@ -1,0 +1,27 @@
+<h2>Elbert Hubbard said..</h2>
+<div class="component">
+    <div class="alert alert-success">
+        <h4>"The final proof of greatness lies in being able to endure criticism without resentment."</h4>
+        <p>- <a href="http://forismatic.com/en/019dbc4fac/" class="alert-link">See the quote at Forismatic.com</a></p>
+    </div>
+</div>
+
+{
+"quoteText":"Failure will never overtake me if my determination to succeed is strong enough. ",
+"quoteAuthor":"Og Mandino",
+"senderName":"",
+"senderLink":"",
+"quoteLink":"http://forismatic.com/en/70b5a19641/"
+}
+
+ var author = "";
+        if (obj.quoteAuthor) {
+            
+        }
+        else {
+
+        }
+
+
+Wayne Dyer said..
+"There is no scarcity of opportunity to make a living at what you love; theres only scarcity of resolve to make it happen. "
