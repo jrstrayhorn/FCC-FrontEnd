@@ -9,26 +9,28 @@ $(document).ready(function() {
 });
 
 function LoadQuote() {
-    // using jsonp to avoid CORS
-    $.getJSON("http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=?", function(json) {
-        var obj = JSON.parse(JSON.stringify(json));  // parsing returned json to object
+    $.get("http://api.chrisvalleskey.com/fillerama/get.php?count=1&format=json&show=starwars&jsoncallback=?", function(response) {
+
+        var source = response.db[0].source;
+        var quote = response.db[0].quote;
         var html = "";
-        var author = (obj.quoteAuthor ? obj.quoteAuthor : "Unknown");
+        var author = (source ? source : "Unknown");
         html += "<h2>" + author + " said..</h2>";
         html += "<div class='component'>";
         html += "<div class='alert " + getRandomAlertClass() + "'>";
-        html += '<h4>"' + obj.quoteText + '"</h4>';
-        html += "<p>- <a href='" + obj.quoteLink + "' class='alert-link'>See the quote at Forismatic.com</a></p>";
+        html += '<h4>"' + quote + '"</h4>';
+        html += "<p>- <a href='http://fillerama.io/' class='alert-link'>See the quote at Fillerama</a></p>";
         html += "</div>";
         html += "</div>";
         $(".quote-section").html(html);
 
         // updating href for twitter button
-        var fullQuote = '"' + obj.quoteText + '" - ' + author;
+        var fullQuote = '"' + quote + '" - ' + author;
         var encodeQuote = encodeURIComponent(fullQuote.trim());
         var twitterURL = "https://twitter.com/intent/tweet?text=";
         $("#tweet-button").attr("href",twitterURL + encodeQuote);
-    });
+
+    }, "jsonp");
 }
 
 function getRandomAlertClass() {
