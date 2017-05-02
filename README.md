@@ -10,3 +10,4 @@ Basic Front End Development Projects
 Intermediate Front End Development Projects
 - Build a Random Quote Machine (View Demo: http://codepen.io/jrstrayhorn/full/rWqmXa/)
 - Show the Local Weather (View Demo: http://codepen.io/jrstrayhorn/full/vmmLvp/)
+- Build a Wikipedia Viewer (View Demo: http://codepen.io/jrstrayhorn/full/zwzMER/)
