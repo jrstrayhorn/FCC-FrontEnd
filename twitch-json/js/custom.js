@@ -46,7 +46,8 @@ function GetOnlineHTML(displayName, url, channelStatus) {
 function GetOfflineHTML(displayName, name) {
     var returnHTML = "";
     returnHTML += "<div class='alert alert-warning' role='alert'>";
-    returnHTML += "<strong>" + displayName + "</strong> is <a href='https://www.twitch.tv/" + name + "' class='alert-link' target='_blank'>OFFLINE (click here to view channel)</a>";
+    returnHTML += "<strong>" + displayName + "</strong> is <a href='https://www.twitch.tv/" + name 
+        + "' class='alert-link' target='_blank'>OFFLINE (click here to view channel)</a>";
     returnHTML += "</div>";
     return returnHTML;
 }
