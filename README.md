@@ -12,3 +12,6 @@ Intermediate Front End Development Projects
 - Show the Local Weather (View Demo: http://codepen.io/jrstrayhorn/full/vmmLvp/)
 - Build a Wikipedia Viewer (View Demo: http://codepen.io/jrstrayhorn/full/zwzMER/)
 - Use the Twitchtv JSON API (View Demo: https://codepen.io/jrstrayhorn/full/BRwgZb/)
+
+Advanced Front End Development Projects
+- Build a JavaScript Calculator (up next!!)
