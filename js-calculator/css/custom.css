@@ -1,22 +1,36 @@
-.calc-button {
-    /*border: 1px solid black;*/
-    text-align: center;
-    cursor: pointer;
-    background-color: #f0f7f4;
-    
+body {
+    background-color: #705d56;
+    color: #f0f7f4;
+}
+.header-text {
+    opacity: .3;
 }
 .row {
     padding: 5px 0px;
 }
-body {
-    background-color: #705d56;
-    color: #f0f7f4;
-    
+.calc {
+    background-color: #99e1d9; 
+    text-align: right;
+}
+.calc-text {
+    opacity: .3;
+}
+.answer {
+    background-color: #70abaf; 
+    text-align: right;
+}
+.answer-text {
+    opacity: 1;
 }
 h2 {
     color: #1f2d3d;
-    
 }
-body h1 {
-    opacity: .3;
+.calc-button {
+    text-align: center;
+    cursor: pointer;
+    background-color: #f0f7f4;
 }
+.equal {
+    background-color: #99e1d9;
+}
+
