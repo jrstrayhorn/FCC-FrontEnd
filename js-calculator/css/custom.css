@@ -1,0 +1,22 @@
+.calc-button {
+    /*border: 1px solid black;*/
+    text-align: center;
+    cursor: pointer;
+    background-color: #f0f7f4;
+    
+}
+.row {
+    padding: 5px 0px;
+}
+body {
+    background-color: #705d56;
+    color: #f0f7f4;
+    
+}
+h2 {
+    color: #1f2d3d;
+    
+}
+body h1 {
+    opacity: .3;
+}
