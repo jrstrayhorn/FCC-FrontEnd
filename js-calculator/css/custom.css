@@ -1,5 +1,5 @@
 body {
-    background-color: #705d56;
+    background-color: #6192d3; /*#705d56;*/
     color: #f0f7f4;
 }
 .header-text {
@@ -9,14 +9,14 @@ body {
     padding: 5px 0px;
 }
 .calc {
-    background-color: #99e1d9; 
+    background-color: #8cbbf7; /* #99e1d9;*/
     text-align: right;
 }
 .calc-text {
     opacity: .3;
 }
 .answer {
-    background-color: #70abaf; 
+    background-color: #657ea0; /*#70abaf;*/
     text-align: right;
 }
 .answer-text {
@@ -28,9 +28,9 @@ h2 {
 .calc-button {
     text-align: center;
     cursor: pointer;
-    background-color: #f0f7f4;
+    background-color: #bad7ff; /* #f0f7f4;*/
 }
 .equal {
-    background-color: #99e1d9;
+    background-color: #8cbbf7; /* #99e1d9;*/
 }
 
