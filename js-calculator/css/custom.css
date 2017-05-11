@@ -1,7 +1,10 @@
 body {
-    background-color: #6192d3; /*#705d56;*/
+    background-color: #6192d3;
     color: #f0f7f4;
 }
+    a, a:hover, a:visited {
+        color: #2e4057;
+    }
 .header-text {
     opacity: .3;
 }
@@ -9,14 +12,14 @@ body {
     padding: 5px 0px;
 }
 .calc {
-    background-color: #8cbbf7; /* #99e1d9;*/
+    background-color: #8cbbf7;
     text-align: right;
 }
 .calc-text {
     opacity: .3;
 }
 .answer {
-    background-color: #657ea0; /*#70abaf;*/
+    background-color: #657ea0;
     text-align: right;
 }
 .answer-text {
@@ -28,9 +31,9 @@ h2 {
 .calc-button {
     text-align: center;
     cursor: pointer;
-    background-color: #bad7ff; /* #f0f7f4;*/
+    background-color: #bad7ff;
 }
 .equal {
-    background-color: #8cbbf7; /* #99e1d9;*/
+    background-color: #8cbbf7;
 }
 
