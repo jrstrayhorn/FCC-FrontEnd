@@ -1,32 +1,43 @@
 $(document).ready(function() {
     $('.calc-button').on('click', function() {
-        var math = $(this).attr("data-math");
-        processMath(math);
+       processMath($(this).attr("data-math"));
     });
 
     clearCalculator();
 });
 
+var ADD_CODE = 43;
+var SUB_CODE = 45;
+var MUL_CODE = 215;
+var DIV_CODE = 247;
+var DEC_CODE = 46;
+var mathCodes = [DIV_CODE, MUL_CODE, SUB_CODE, ADD_CODE];
+var canAddDecimal = true;
+
 function processMath(math) {
     switch(math) {
         case '=':
             doMath();
-            break;
-        
+            break;       
         case 'C':
             clearCalculator();
             break;
-
         default:
             addToOperations(math);
             break;
     }
 }
 
-function doMath() {
-    var sum = 0;
+function stripBlanksExtraDashesFilter(el, index, arr) {
+    var keep = true;
+    if (el.length === 0)
+        keep = false;
+    if (el === "-" && arr[index+1].indexOf("-") !== -1)
+        keep = false;
+    return keep;
+}
 
-    
+function doMath() {
     var operation = $('.calc-text').text();
 
     // strip math symbols from end of calc-text
@@ -35,86 +46,65 @@ function doMath() {
         operation = operation.substring(0, operation.length-1);
     }
 
+    var calcArr = convertCalcStringToArray(operation);
+
+    var finalArr = calcArr.filter(stripBlanksExtraDashesFilter);
+
+    // Processing multiplication and division left to right
+    while (finalArr.indexOf(String.fromCharCode(MUL_CODE)) !== -1 || finalArr.indexOf(String.fromCharCode(DIV_CODE)) !== -1) {
+        finalArr = processCalculationArray(finalArr, true);
+    }
+
+    // Processing addition and subtraction left to right
+    while (finalArr.indexOf(String.fromCharCode(SUB_CODE)) !== -1 || finalArr.indexOf(String.fromCharCode(ADD_CODE)) !== -1) {
+        finalArr = processCalculationArray(finalArr, false);
+    }
+
+    $('.answer-text').text(finalArr[0]);
+    $('.calc-text').text(operation);
+}
+
+function convertCalcStringToArray(operation) {
+    var calcArr = [];
+
     var pipeCalc = operation.replace(/[^.0-9]/g, replacer); 
-    var calcArr = pipeCalc.split('|');
+    calcArr = pipeCalc.split('|');
 
     for (var i = 0; i < calcArr.length; i++) {
         if (calcArr[i].length === 0)
             calcArr[i+2] = "-" + calcArr[i+2];
     }
 
-    var finalArr = calcArr.filter(function(el, index, arr) {
-        var keep = true;
+    return calcArr;
+}
 
-        //if (index === 0 && el === "-")
-        //    keep = false;
+function processCalculationArray(finalArr, isMultplyDivision) {
+    var newArr = [];
 
-        if (el.length === 0)
-            keep = false;
-
-        if (el === "-" && arr[index+1].indexOf("-") !== -1)
-            keep = false;
-
-        //if (index === arr.length-1 && mathCodes.indexOf(el.charCodeAt(0)) !== -1)
-        //    keep = false;
-
-        return keep;
-    });
-
-    console.log(finalArr);
-
-    /*for (var x = 0; x < finalArr.length; x+2) {
-        sum += performMath(finalArr[x], finalArr[x+2], finalArr[x+1].charCodeAt(0));
-    }*/
-
-    // Processing multiplication and division left to right
-    while (finalArr.indexOf(String.fromCharCode(MUL_CODE)) !== -1 || finalArr.indexOf(String.fromCharCode(DIV_CODE)) !== -1) {
-        for (var x = 0; x < finalArr.length; x++) {
+    for (var x = 0; x < finalArr.length; x++) {
             var sym_code = finalArr[x].charCodeAt(0);
-            if (sym_code === MUL_CODE || sym_code === DIV_CODE) {
+            if (
+            ((sym_code === MUL_CODE || sym_code === DIV_CODE) && isMultplyDivision)  
+            || 
+            (((sym_code === SUB_CODE || sym_code === ADD_CODE) && finalArr[x].length === 1) && !isMultplyDivision)
+            ) {
                 var myX = parseFloat(finalArr[x-1]);
                 var y = parseFloat(finalArr[x+1]);
                 var mySum = performMath(myX, y, sym_code);
                 finalArr[x-1] = mySum.toString();
                 var newArr = finalArr.filter(function(el, index) {
                     var keep = true;
-
                     if (index === x || index === x+1)
                         keep = false;
-
                     return keep;
                 });
                 finalArr = newArr;
                 break;
             }
         }
-    }
 
-    // Processing addition and subtraction left to right
-    while (finalArr.indexOf(String.fromCharCode(SUB_CODE)) !== -1 || finalArr.indexOf(String.fromCharCode(ADD_CODE)) !== -1) {
-        for (var x = 0; x < finalArr.length; x++) {
-            var sym_code = finalArr[x].charCodeAt(0);
-            if ((sym_code === SUB_CODE || sym_code === ADD_CODE) && finalArr[x].length === 1) {
-                var myX = parseFloat(finalArr[x-1]);
-                var y = parseFloat(finalArr[x+1]);
-                var mySum = performMath(myX, y, sym_code);
-                finalArr[x-1] = mySum.toString();
-                var newArr = finalArr.filter(function(el, index) {
-                    var keep = true;
+    return newArr;
 
-                    if (index === x || index === x+1)
-                        keep = false;
-
-                    return keep;
-                });
-                finalArr = newArr;
-                break;
-            }
-        }
-    }
-
-    $('.answer-text').text(finalArr[0]);
-    $('.calc-text').text(operation);
 }
 
 function performMath(x, y, sym_code) {
@@ -144,8 +134,6 @@ function replacer(match) {
 }
 
 function addToOperations(math) {
-    
-
     if ($('.calc-text').text().indexOf('input') == -1 && $('.answer-text').text() !== "0") {
         clearCalculator();
     }
@@ -153,6 +141,7 @@ function addToOperations(math) {
     var operation = $('.calc-text').text();
     var mathCode = math.charCodeAt(0);
 
+    // check - make sure that only "minus" can be entered first
     if (operation.indexOf('input') !== -1)
     {
         if (mathCodes.indexOf(mathCode) !== -1)
@@ -163,10 +152,6 @@ function addToOperations(math) {
             }
         }
         operation = '';
-    } 
-    else 
-    {
-        
     }
         
     var lastCharCode = operation.substring(operation.length-1).charCodeAt(0);
@@ -205,16 +190,7 @@ function addToOperations(math) {
     
     operation += math;
     $('.calc-text').text(operation);
-    //alert(math.charCodeAt(0));
 }
-
-var ADD_CODE = 43;
-var SUB_CODE = 45;
-var MUL_CODE = 215;
-var DIV_CODE = 247;
-var DEC_CODE = 46;
-var mathCodes = [DIV_CODE, MUL_CODE, SUB_CODE, ADD_CODE];
-var canAddDecimal = true;
 
 function clearCalculator() {
     $('.calc-text').text('Waiting for input...');
