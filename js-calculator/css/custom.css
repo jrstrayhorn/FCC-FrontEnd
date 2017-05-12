@@ -17,6 +17,7 @@ body {
 }
 .calc-text {
     opacity: .3;
+    word-wrap: break-word;
 }
 .answer {
     background-color: #657ea0;

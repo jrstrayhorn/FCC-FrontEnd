@@ -14,4 +14,5 @@ Intermediate Front End Development Projects
 - Use the Twitchtv JSON API (View Demo: https://codepen.io/jrstrayhorn/full/BRwgZb/)
 
 Advanced Front End Development Projects
-- Build a JavaScript Calculator (up next!!)
+- Build a JavaScript Calculator (View Demo: https://codepen.io/jrstrayhorn/full/XREodb/)
+- Build a Pomodoro Clock (Up next!!)
