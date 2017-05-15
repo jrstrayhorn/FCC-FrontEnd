@@ -42,18 +42,20 @@
                   <label for="length" class="col-sm-2 control-label">Pomodoro Length</label>
                   <div class="col-sm-2">
                       <select name="length" id="length" class="form-control">
-                          <option value="25">25 minutes</option>
-                          <option value="20">20 minutes</option>
-                          <option value="15">15 minutes</option>
-                          <option value="10">10 minutes</option>
-                          <option value="5">5 minutes</option>
+                          <option value="1500">25 minutes</option>
+                          <option value="1200">20 minutes</option>
+                          <option value="900">15 minutes</option>
+                          <option value="600">10 minutes</option>
+                          <option value="300">5 minutes</option>
+                          <option value="60">1 minute</option>
+                          <option value="30">30 seconds</option>
                       </select>
                   </div>
               </div>
           </div>
           <div class="row">
               <div class="text-center">
-                  <h1 class="time-left">Waiting to start next pomodoro...</h1>
+                  <h1 class="time-left"></h1>
               </div>
           </div>
           <div class="row">
@@ -61,7 +63,7 @@
                 <button type="button" class="btn btn-primary btn-lg btn-block start">Start</button>
               </div>
               <div class="col-xs-6">
-                <button type="button" class="btn btn-default btn-lg btn-block stop">Stop</button>
+                <button type="button" class="btn btn-default btn-lg btn-block stop" disabled>Stop</button>
               </div>
           </div>
       </div>
@@ -71,5 +73,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+    <script src="js/custom.js"></script>
   </body>
 </html>
