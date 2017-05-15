@@ -15,4 +15,5 @@ Intermediate Front End Development Projects
 
 Advanced Front End Development Projects
 - Build a JavaScript Calculator (View Demo: https://codepen.io/jrstrayhorn/full/XREodb/)
-- Build a Pomodoro Clock (Up next!!)
+- Build a Pomodoro Clock (View Demo: https://codepen.io/jrstrayhorn/full/pPKYXV/)
+- Build a Tic Tac Toe Game (Up next!!)
