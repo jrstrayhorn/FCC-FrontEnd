@@ -1,3 +1,7 @@
+body {
+    background-color: #C7D2D6;
+    color: #0B2027;
+}
 #start-button {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -8,9 +12,9 @@
 }
 
 .game-square {
-    background-color: red;
+    background-color: #6f99a8;
     text-align: center;
-    border: 1px solid black;
+    border: 1px solid #0B2027;
     min-height: 75px;
     cursor: pointer;
 }
