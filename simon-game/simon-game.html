@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head 
+         content must come *after* these tags -->
+    <title>FCC: Simon Game</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link href="css/simon-game.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="game-over-msg" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Game Over!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="message-text"></p>
+                    </div>
+                    
+                </div>
+            </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-9">
+                <h2>Simon Game</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra tincidunt erat, eget tincidunt arcu consequat sed. Etiam elit purus, laoreet sit amet efficitur eu, vulputate vel risus. Donec sit amet ligula orci. Suspendisse potenti. Integer vulputate pellentesque porttitor. Vivamus eget mauris elit. Morbi consectetur odio vitae lacus tempus dictum.</p>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+                <button class="btn btn-primary btn-lg btn-block" id="start-button">Start Game</button>
+                <audio id="cAudio">
+                    <source src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" type="audio/mpeg"></source>
+                </audio>
+                 <audio id="aAudio">
+                    <source src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" type="audio/mpeg"></source>
+                </audio>
+                <audio id="gAudio">
+                    <source src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" type="audio/mpeg"></source>
+                </audio>
+                <audio id="eAudio">
+                    <source src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3" type="audio/mpeg"></source>
+                </audio>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-6 col-sm-4">
+                <div class="square-pad"></div>
+                <a href="#x" class="simon-square" id="green-button" data-btn="1"></a>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+                <div class="square-pad"></div>
+                <a href="#x" class="simon-square" id="red-button" data-btn="0"></a>
+            </div>
+            <div class="col-sm-4">
+                
+                </div>
+                </div>
+                <div class="row">
+            <div class="col-xs-6 col-sm-4">
+                <div class="square-pad"></div>
+                <a href="#x" class="simon-square" id="yellow-button" data-btn="2"></a>
+            </div>
+            <div class="col-xs-6 col-sm-4">
+                <div class="square-pad"></div>
+                <a href="#x" class="simon-square" id="blue-button" data-btn="3"></a>
+            </div>
+             <div class="col-sm-4">
+                
+                </div>
+        </div>
+   
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/simon-game.js"></script>
+</body>
+</html>

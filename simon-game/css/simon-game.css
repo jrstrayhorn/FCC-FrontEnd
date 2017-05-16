@@ -1,0 +1,51 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#game-over-msg {
+    color: black;
+}
+
+.game-button {
+    min-height: 400px;
+    cursor: pointer;
+}
+
+#green-button {
+    background-color: green;
+}
+
+#red-button {
+    background-color: red;
+}
+
+#yellow-button {
+    background-color: yellow;
+}
+
+#blue-button {
+    background-color: blue;
+}
+
+#start-button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* needed for resposive squares
+    got from http://www.bootply.com/108128
+*/
+.square-pad {
+    margin-top: 100%;
+}
+.simon-square {
+    position: absolute;
+    top: 15px;
+    bottom: 0;
+    left: 15px;
+    right: 0;
+    text-align:center;
+    padding-top:calc(50% - 30px);
+}
