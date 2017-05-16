@@ -99,16 +99,33 @@ function checkUserButtonPress(buttonIndex) {
     }
     else
     {
-        var msg = "Game Over! You went " + turns + " turn(s). Hit Start Game to try again";
-        bootbox.alert(msg, function() { resetGame(); });
+        // strict mode check
+        if (false) 
+        {
+            var msg = "Game Over! You went " + turns + " turn(s). Hit Start Game to try again";
+            bootbox.alert(msg, function() { resetGame(); });
+        } 
+        else
+        {
+            var msg = "You hit the wrong button! I'll replay the steps so you can try again";
+            bootbox.alert(msg, function() { 
+                userButtonPresses = 0;
+                pressButtonSequence(buttonArray); 
+            });
+        }
     }
 }
 
 function resetGame() {
     buttonArray = [];
     turns = 0;
+    showTurnsCount();
     userButtonPresses = 0;
     //gameStarted = false;
+}
+
+function showTurnsCount() {
+    $('#turn-count').text(turns);
 }
 
 var buttonArray = [];
@@ -125,6 +142,7 @@ var DELAY_TIMING = 600;
 function generateButton() {
     turns += 1;
 
+    showTurnsCount();
     //if (turns == 1) {
     //    gameStarted = true;
     //}
