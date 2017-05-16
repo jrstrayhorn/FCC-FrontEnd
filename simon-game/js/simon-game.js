@@ -5,7 +5,7 @@ var blueBtn = $('#blue-button')
 
 $(document).ready(function () {
     $('#start-button').on('click', generateButton);
-    
+
     $('.simon-square').on('click', function () {
         checkUserButtonPress(parseInt($(this).attr("data-btn")));
     });
@@ -95,10 +95,7 @@ function checkUserButtonPress(buttonIndex) {
     else
     {
         var msg = "Game Over! You went " + turns + " turn(s). Hit Start Game to try again";
-        var mymodal = $('#game-over-msg');
-        mymodal.find('.modal-body .message-text').text(msg);
-        mymodal.modal('show');
-        resetGame();
+        bootbox.alert(msg, function() { resetGame(); });
     }
 }
 
