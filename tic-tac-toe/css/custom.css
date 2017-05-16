@@ -1,0 +1,26 @@
+#start-button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.game-row {
+    padding: 0px 15px;
+}
+
+.game-square {
+    background-color: red;
+    text-align: center;
+    border: 1px solid black;
+    min-height: 75px;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+    .game-square {
+        height: 186px;
+    }
+
+    .game-square h1 {
+        font-size: 121px;
+    }
+}
