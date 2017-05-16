@@ -100,7 +100,7 @@ function checkUserButtonPress(buttonIndex) {
     else
     {
         // strict mode check
-        if (false) 
+        if ($('#strict-mode').prop("checked")) 
         {
             var msg = "Game Over! You went " + turns + " turn(s). Hit Start Game to try again";
             bootbox.alert(msg, function() { resetGame(); });

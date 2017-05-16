@@ -57,3 +57,11 @@ body {
 .bootbox-body {
     color: black;
 }
+
+/*
+    Bootstrap Overrides
+*/
+
+.checkbox label {
+    font-weight: bold;
+}
