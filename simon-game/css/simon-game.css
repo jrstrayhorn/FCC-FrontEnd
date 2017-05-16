@@ -38,6 +38,10 @@ body {
     padding-right: 15px;
 }
 
+footer {
+    padding: 20px 0px;
+}
+
 /* needed for resposive squares
     got from http://www.bootply.com/108128
 */
