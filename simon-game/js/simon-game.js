@@ -102,8 +102,8 @@ function checkUserButtonPress(buttonIndex) {
         // strict mode check
         if ($('#strict-mode').prop("checked")) 
         {
-            var msg = "Game Over! You went " + turns + " turn(s). Hit Start Game to try again";
-            bootbox.alert(msg, function() { resetGame(); });
+            var msg = "Game Over! You went " + turns + " turn(s). Restarting the game...";
+            bootbox.alert(msg, function() { startGame(); });
         } 
         else
         {
@@ -121,7 +121,6 @@ function resetGame() {
     turns = 0;
     showTurnsCount();
     userButtonPresses = 0;
-    //gameStarted = false;
 }
 
 function showTurnsCount() {
@@ -136,16 +135,17 @@ var GREEN_BUTTON_INDEX = 1;
 var YELLOW_BUTTON_INDEX = 2;
 var BLUE_BUTTON_INDEX = 3;
 var DELAY_TIMING = 600;
-//var gameStarted = false;
+var WINNING_TURN = 21;
 
-// 0: Red, 1: Green, 2: Yellow, 3: Blue
 function generateButton() {
     turns += 1;
 
+    if (turns == WINNING_TURN) {
+        bootbox.alert('You won!!! Congratulations!! Restarting the game...', function() { startGame(); });
+        return;
+    }
+
     showTurnsCount();
-    //if (turns == 1) {
-    //    gameStarted = true;
-    //}
 
     var randomNumber = getRandomNumber();
 

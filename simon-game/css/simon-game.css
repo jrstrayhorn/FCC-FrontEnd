@@ -34,6 +34,10 @@ body {
     margin-bottom: 20px;
 }
 
+.pad-row {
+    padding-right: 15px;
+}
+
 /* needed for resposive squares
     got from http://www.bootply.com/108128
 */
