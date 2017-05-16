@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    //pcTurn();
     $('.game-square').on('click', function() {
         userTurn($(this).attr("data-index"));
     });
@@ -7,8 +6,13 @@ $(document).ready(function() {
     $('#start-button').on('click', function() {
         startGame();
     });
-    
 });
+
+var gameArr;
+var pcSymbol;
+var userSymbol;
+var gameOverStatus;
+var gameStarted = false;
 
 function startGame() {
     gameStarted = false;
@@ -64,13 +68,8 @@ function startGame() {
                     $('#start-button').attr('disabled', 'disabled');
                 }
             });
-
-            
-            
         }
     });
-
-    
 }
 
 function userTurn(index) {
@@ -85,35 +84,31 @@ function userTurn(index) {
     // redraw board
     redrawBoard();
 
-    gameOver = isGameOver();
+    gameOverStatus = getGameOverStatus();
 
-    if (gameOver === '') {
+    if (gameOverStatus === '') {
         pcTurn();
-        } else {
-            processWinner(gameOver);
-        }
+    } 
+    else 
+    {
+        processWinner(gameOverStatus);
+    }
 }
 
-function processWinner(winSymbol) {
+function processWinner(gameOverStatus) {
     var winMsg = '';
 
-    if (winSymbol == userSymbol)
+    if (gameOverStatus == userSymbol)
         winMsg = 'User won';
 
-    if (winSymbol == pcSymbol)
+    if (gameOverStatus == pcSymbol)
         winMsg = 'Computer won';
     
-    if (winSymbol == 'D')
+    if (gameOverStatus == 'D')
         winMsg = 'Game is a draw';
 
     bootbox.alert(winMsg, function() { startGame(); });
 }
-
-var gameArr; // = ['','','','','','','','',''];
-var pcSymbol; // = 'O';
-var userSymbol; // = 'X';
-var gameOver;
-var gameStarted = false;
 
 function pcTurn() {
     // add pc symbol to array
@@ -130,37 +125,26 @@ function pcTurn() {
     redrawBoard();
 
     // check if game over
-    gameOver = isGameOver();
+    gameOverStatus = getGameOverStatus();
 
-    if (gameOver !== '')
-        processWinner(gameOver);
+    if (gameOverStatus !== '')
+        processWinner(gameOverStatus);
 }
 
-function isGameOver() {
-    var gameOver = '';
+function getGameOverStatus() {
+    var gameOverStatus = '';
     var whoWon = checkGameOver();
     if (whoWon !== '')
     {
-        /*if (whoWon === pcSymbol) {
-            // then pc won
-            bootbox.alert('Computer won');
-            gameOver = true;
-        } else {
-            // then user won
-            bootbox.alert('User won');
-            gameOver = true;
-        }*/
-        gameOver = whoWon;
-        return gameOver;
+        gameOverStatus = whoWon;
+        return gameOverStatus;
     }
 
     if (gameArr.indexOf('') === -1) {
         // game is a draw
-        //bootbox.alert('Game is a draw');
-        //gameOver = true;
-        gameOver = 'D';
+        gameOverStatus = 'D';
     }
-    return gameOver;
+    return gameOverStatus;
 }
 
 function redrawBoard() {
