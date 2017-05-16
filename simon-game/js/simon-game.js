@@ -4,7 +4,7 @@ var yellowBtn = $('#yellow-button');
 var blueBtn = $('#blue-button')
 
 $(document).ready(function () {
-    $('#start-button').on('click', generateButton);
+    $('#start-button').on('click', startGame);
 
     $('.simon-square').on('click', function () {
         checkUserButtonPress(parseInt($(this).attr("data-btn")));
@@ -18,6 +18,11 @@ $(document).ready(function () {
         buttonMouseup(parseInt($(this).attr("data-btn")));
     });
 });
+
+function startGame() {
+    resetGame();
+    generateButton();
+}
 
 function buttonMouseup(btnIndex) {
     switch(btnIndex) {
