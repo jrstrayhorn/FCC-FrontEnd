@@ -1,7 +1,7 @@
 # FCC-FrontEnd
 Projects, Challenges, Assignments for FreeCodeCamp Front End Development Cert.
 
-Completed so far....
+Completed, Front End Certification received May 2017
 
 Basic Front End Development Projects
 - Build a Tribute Page (View Demo: http://codepen.io/jrstrayhorn/full/GjKQKr/)
@@ -17,4 +17,4 @@ Advanced Front End Development Projects
 - Build a JavaScript Calculator (View Demo: https://codepen.io/jrstrayhorn/full/XREodb/)
 - Build a Pomodoro Clock (View Demo: https://codepen.io/jrstrayhorn/full/pPKYXV/)
 - Build a Tic Tac Toe Game (View Demo: https://codepen.io/jrstrayhorn/full/ybqjZw/)
-- Build a Simon Game (Up next!!)
+- Build a Simon Game (View Demo: http://codepen.io/jrstrayhorn/full/xdJyZO/)
